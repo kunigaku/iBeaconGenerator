@@ -39,7 +39,7 @@ class Ibeacon: NSObject, CBPeripheralManagerDelegate {
     }
     
     func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
-        if peripheral.state == CBPeripheralManagerState.poweredOn {
+        if peripheral.state == CBManagerState.poweredOn {
             // 使用可能なのでボタンを有効にする
             print("power On")
         }

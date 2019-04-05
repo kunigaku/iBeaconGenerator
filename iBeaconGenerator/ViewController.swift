@@ -36,7 +36,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
         
     }
     
-    func update(tm: Timer) {
+    @objc func update(tm: Timer) {
         self.iBeacons.forEach {
             if $0.power {
                 $0.start()
@@ -53,7 +53,7 @@ class ViewController: NSViewController, NSTableViewDelegate, NSTableViewDataSour
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        switch (tableColumn?.identifier)! as String {
+        switch (tableColumn?.identifier.rawValue)! as String {
         case "power":
             return iBeacons[row].power ? 1 : 0
         case "uuid":
